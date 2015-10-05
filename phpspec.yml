@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: MediumSpot
+        psr4_prefix: MediumSpot
+        src_path: app

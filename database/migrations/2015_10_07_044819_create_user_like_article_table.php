@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UserLikeArticleTable extends Migration
+class CreateUserLikeArticleTable extends Migration
 {
     /**
      * Run the migrations.

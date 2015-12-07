@@ -13,9 +13,7 @@ class ArticleController extends Controller
     public function __construct(Article $article)
     {
         $this->article = $article;
-        if (!is_null(session('user'))) {
-            return redirect('/auth/login'); 
-        }
+
     }
 
     public function index()

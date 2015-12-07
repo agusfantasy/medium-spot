@@ -15,7 +15,7 @@ class TopicModel extends Model
     /**
      * The article that belong to the topic.
      */
-    public function topic()
+    public function articles()
     {
         return $this->belongsToMany('MediumSpot\ArticleModel');
     }

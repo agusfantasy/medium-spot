@@ -1,20 +1,10 @@
 <?php
 namespace MediumSpot;
 
-use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\Passwords\CanResetPassword;
-use Illuminate\Foundation\Auth\Access\Authorizable;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class UserModel extends Model implements AuthenticatableContract,
-                                    AuthorizableContract,
-                                    CanResetPasswordContract
+class UserModel extends Model
 {
-    use Authenticatable, Authorizable, CanResetPassword;
-
     /**
      * The database table used by the model.
      *
@@ -37,10 +27,26 @@ class UserModel extends Model implements AuthenticatableContract,
     protected $hidden = ['password', 'remember_token'];
 
     /**
+     * The user created the article.
+     */
+    public function article()
+    {
+        return $this->hasMany('MediumSpot\ArticleModel');
+    }
+
+    /**
      * The user that belong to the article.
      */
     public function like_article()
     {
         return $this->belongsToMany('MediumSpot\ArticleModel');
+    }
+
+    /**
+     * The user that belong to the user follow.
+     */
+    public function follow()
+    {
+        return $this->belongsToMany('MediumSpot\UserFollowModel');
     }
 }

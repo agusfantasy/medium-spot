@@ -11,11 +11,34 @@
 |
 */
 
-$factory->define(MediumSpot\User::class, function (Faker\Generator $faker) {
+use MediumSpot\UserModel;
+use MediumSpot\ArticleModel;
+use MediumSpot\TopicModel;
+
+$factory->define(UserModel::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(ArticleModel::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->title,
+        'content' => $faker->paragraphs,
+        'thumbnail' => $faker->image(),
+        'user_id' => $faker->randomNumber(),
+        'active' => $faker->boolean(),
+        'created_at' => date('Y-m-d H:i:s'),
+    ];
+});
+
+$factory->define(TopicModel::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->title,
+        'user_id' => $faker->randomNumber(),
+        'active' => $faker->boolean(),
     ];
 });

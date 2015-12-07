@@ -15,24 +15,10 @@ class ArticleModel extends Model
     /**
      * The topic that belong to the article.
      */
-    public function topic()
+
+    public function topics()
     {
         return $this->belongsToMany('MediumSpot\TopicModel');
     }
 
-    /**
-     * The user that belong to the article.
-     */
-    public function user_like()
-    {
-        return $this->belongsToMany('MediumSpot\UserLikeArticleModel');
-    }
-
-    /**
-     * Get all of the article's tag.
-     */
-    public function tag()
-    {
-        return $this->morphMany('MediumSpot\TagModel', 'taggables');
-    }
 }

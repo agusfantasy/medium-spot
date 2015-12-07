@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => 'eloquent',
+    'driver' => 'database',
 
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => MediumSpot\User::class,
+    //'model' => MediumSpot\User::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'table' => 'users',
+    //'table' => 'users',
 
     /*
     |--------------------------------------------------------------------------
@@ -58,10 +58,10 @@ return [
     |
     */
 
-    'password' => [
+    /*'password' => [
         'email' => 'emails.password',
         'table' => 'password_resets',
         'expire' => 60,
-    ],
+    ],*/
 
 ];

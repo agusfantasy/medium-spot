@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -11,6 +10,15 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+
+Route::get('/auth/login', ['uses' => 'Front\AuthController@login']);
+Route::post('/auth/login', ['uses' => 'Front\AuthController@postLogin']);
+
+Route::get('/register', ['uses' => 'Front\AuthController@register']);
+Route::post('/register', ['uses' => 'Front\AuthController@postRegister']);
+
+Route::get('/', ['uses' => 'Front\ArticleController@index']);
